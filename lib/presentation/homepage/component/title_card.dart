@@ -6,7 +6,7 @@ class TitleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 16 / 6,
+      aspectRatio: 16 / 4,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
 
@@ -20,7 +20,7 @@ class TitleCard extends StatelessWidget {
                   offset: Offset(2, 2),
                   color: Colors.black12)
             ],
-            color: Color(0xffDFF2EB),
+            color: Colors.white,
             borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(20),
                 bottomLeft: Radius.circular(20))),

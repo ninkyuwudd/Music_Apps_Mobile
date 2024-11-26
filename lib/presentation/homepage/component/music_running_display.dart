@@ -9,20 +9,28 @@ class MusicRunningDisplay extends StatelessWidget {
       children: [
         // Text("03:12"),
         Positioned(
-          left: -180,
-          top: 90,
-          height: 370,
-          width: 370,
+          left: -190,
+          top: 75,
+          height: 400,
+          width: 400,
           child: Container(
-            decoration:
-                BoxDecoration(border: Border.all(), shape: BoxShape.circle),
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 2,
+                      spreadRadius: 2,
+                      color: Colors.black12,
+                      offset: Offset(2, 2))
+                ],
+                border: Border.all(width: 8, color: const Color(0xffBBE6E8)),
+                shape: BoxShape.circle),
           ),
         ),
         Positioned(
-          left: -210,
-          top: 65,
-          height: 420,
-          width: 420,
+          left: -220,
+          top: 45,
+          height: 470,
+          width: 470,
           child: Container(
             decoration: BoxDecoration(
                 border: Border.all(
@@ -30,6 +38,18 @@ class MusicRunningDisplay extends StatelessWidget {
                 shape: BoxShape.circle),
           ),
         ),
+        // Positioned(
+        //   left: -150,
+        //   top: 25,
+        //   height: 500,
+        //   width: 500,
+        //   child: Container(
+        //     decoration: BoxDecoration(
+        //         border: Border.all(
+        //             width: 8, color: const Color.fromARGB(255, 241, 110, 101)),
+        //         shape: BoxShape.circle),
+        //   ),
+        // ),
         Positioned(
           left: -175,
           top: 100,
