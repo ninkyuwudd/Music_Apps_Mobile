@@ -41,7 +41,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: const Text("Music Player"),
+          backgroundColor: Colors.white,
+        ),
         body: PlayerWidget(
           player: player,
         ));
@@ -126,17 +129,19 @@ class _PlayerWidgetState extends State<PlayerWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TitleCard(),
-          IconButton(
-            key: const Key('play_button'),
-            onPressed: _isPlaying ? _stop : _play,
-            iconSize: 48.0,
-            icon: const Icon(Icons.play_arrow),
-          ),
           Expanded(child: MusicRunningDisplay()),
+          Text(
+            _position != null
+                ? '$_positionText / $_durationText'
+                : _duration != null
+                    ? _durationText
+                    : '',
+            style: const TextStyle(fontSize: 16.0),
+          ),
           MusicNavigation(
             isPlaying: _isPlaying,
-            pause: _pause,
-            play: _play,
+            pause: pause,
+            play: play,
           )
         ],
       ),
@@ -167,17 +172,17 @@ class _PlayerWidgetState extends State<PlayerWidget> {
     });
   }
 
-  Future<void> _play() async {
+  Future<void> play() async {
     await player.resume();
     setState(() => _playerState = PlayerState.playing);
   }
 
-  Future<void> _pause() async {
+  Future<void> pause() async {
     await player.pause();
     setState(() => _playerState = PlayerState.paused);
   }
 
-  Future<void> _stop() async {
+  Future<void> stop() async {
     await player.stop();
     setState(() {
       _playerState = PlayerState.stopped;

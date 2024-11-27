@@ -37,14 +37,10 @@ class _MusicNavigationState extends State<MusicNavigation> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             CustomCircleButton(
-              iconButton: Icons.skip_previous,
-              onPressed: 
-                widget.isPlaying ? widget.pause : widget.play
-              ,
-            ),
+                iconButton: Icons.skip_previous, onPressed: () {}),
             CustomCircleButton(
               iconButton: Icons.play_arrow,
-              onPressed: () {},
+              onPressed: widget.isPlaying ? widget.pause : widget.play,
             ),
             CustomCircleButton(
               iconButton: Icons.skip_next,
