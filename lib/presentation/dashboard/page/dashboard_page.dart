@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_animated_apps/core/route/routes.dart';
+import 'package:frontend_animated_apps/presentation/dashboard/component/music_section.dart';
 import 'package:get/get.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -9,28 +10,24 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Container(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Recent",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          Text(
-            "My Music",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          Text(
-            "Playlist",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-          Text(
-            "Albums",
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-          ),
-        ],
-      )),
+      body: SingleChildScrollView(
+        child: Container(
+            margin: EdgeInsets.only(top: 15, left: 15, right: 15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                MusicSection(
+                  headingTitle: "Albums",
+                ),
+                MusicSection(headingTitle: "My Music"),
+                Text(
+                  "Recent",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                MusicSection(headingTitle: "Playlist"),
+              ],
+            )),
+      ),
     );
   }
 }
