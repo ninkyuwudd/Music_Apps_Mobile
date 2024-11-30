@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend_animated_apps/core/route/routes.dart';
 import 'package:frontend_animated_apps/presentation/dashboard/component/music_section.dart';
+import 'package:frontend_animated_apps/utils/images.dart';
 import 'package:get/get.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -9,10 +10,21 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Image.asset(
+          AppsImages.appbarLogo,
+          width: 180,
+        ),
+        backgroundColor: Colors.white,
+      ),
       body: SingleChildScrollView(
         child: Container(
-            margin: EdgeInsets.only(top: 15, left: 15, right: 15),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [const Color(0xffDFF2EB), const Color(0xff4A628A)],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight)),
+            padding: EdgeInsets.only(top: 15, left: 15, right: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -20,9 +32,9 @@ class DashboardPage extends StatelessWidget {
                   headingTitle: "Albums",
                 ),
                 MusicSection(headingTitle: "My Music"),
-                Text(
-                  "Recent",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                MusicSection(
+                  headingTitle: "Recent",
+                  isHorizontal: true,
                 ),
                 MusicSection(headingTitle: "Playlist"),
               ],
